@@ -83,10 +83,10 @@ contract DevSquad is ERC721URIStorage {
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();
     _safeMint(msg.sender, newItemId);
-    uint256 randomName = random(nameArray.length);
-    tokenToWarrior[newItemId] = MyWarrior(nameArray[randomName],random(100),random(100),random(100));
+    // uint256 randomName = random(nameArray.length);
+    tokenToWarrior[newItemId] = MyWarrior(nameArray[newItemId-1],random(100),random(100),random(100));
     // tokenToLevels[newItemId] = 1;
-     delete nameArray[randomName];
+     delete nameArray[newItemId-1];
     _setTokenURI(newItemId, getTokenURI(newItemId));
     } 
 
